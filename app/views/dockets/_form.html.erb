@@ -1,0 +1,41 @@
+<%= form_with(model: docket, local: true) do |form| %>
+  <% if docket.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h2><%= pluralize(docket.errors.count, "error") %> prohibió que este expediente se guarde:</h2>
+      <ul>
+      <% docket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label "Seleccionar Persona" %>
+    <%= form.select :person_id, people_for_select, { include_blank: "Seleccionar persona" }, class: 'form-control', id: 'dropdown' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :numero %>
+    <%= form.text_field :number, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :descripcion %>
+    <%= form.text_area :description, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Seleccionar Estado" %>
+    <%= form.select :states, options_for_enum(@docket, :states),
+      { include_blank: 'Seleccionar Estado' }, class: 'form-control'%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Aceptar' %>
+  </div>
+
+<% end %>

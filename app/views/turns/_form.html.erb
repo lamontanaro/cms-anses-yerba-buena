@@ -1,0 +1,44 @@
+<%= form_with(model: turn, local: true) do |form| %>
+  <% if turn.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h2><%= pluralize(turn.errors.count, "error") %> prohibió que este turno se guarde:</h2>
+      <ul>
+      <% turn.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label "Seleccionar Persona" %>
+    <%= form.select :person_id, people_for_select, { include_blank: "Seleccionar persona" }, class: 'form-control', id: 'dropdown' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :numero %>
+    <%= form.text_field :number, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fecha %>
+    <%= form.text_field :turn_date, class: 'form-control', required: true, data_mask: "date", placeholder: "DD/MM/YYYY" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :horario %>
+    <%= form.text_field :turn_time, class: 'form-control', required: true, placeholder: "00:00" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sucursal %>
+    <%= form.text_field :place, class: 'form-control', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Aceptar' %>
+  </div>
+<% end %>

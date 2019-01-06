@@ -1,0 +1,6 @@
+Rails.application.routes.draw do
+  root 'people#index'
+  resources :people
+  resources :dockets
+  resources :turns
+end

@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    enums:
+      docket:
+        states:
+          iniciado: 'Iniciado'
+          aprobado:   "Aprobado"
+          rechazado:  "Rechazado"

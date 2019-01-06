@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AnsesDelegacion</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="cl-wrapper">
+      <%= render 'shared/sidebar' %>
+
+      <div id="pcont" class="container-fluid">
+        <%= render 'shared/navbar' %>
+
+        <div class="cl-mcont">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

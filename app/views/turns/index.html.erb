@@ -1,0 +1,43 @@
+<% if notice %>
+ <div class="alert alert-success" role="alert">
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+   <%= notice %>
+ </div>
+<% end %>
+<div class="tab-content">
+  <h1> Turnos</h1>
+
+  <table>
+    <thead>
+      <strong>
+        <tr>
+          <th>Numero</th>
+          <th>Nombre y Apellido</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>sucursal</th>
+          <th colspan="3"></th>
+        </tr>        
+      </strong>
+    </thead>
+
+    <tbody>
+      <% @turns.each do |turn| %>
+        <tr>
+          <td><%= turn.number %></td>
+          <td><%= turn.person.full_name %></td>
+          <td><%= turn.turn_date %></td>
+          <td><%= turn.turn_time %></td>
+          <td><%= turn.place %></td>
+          <td><%= link_to 'Ver', turn_path(turn) %></td>
+          <td><%= link_to 'Editar', edit_turn_path(turn) %></td>
+          <td><%= link_to 'Eliminar', turn_path(turn),method: :delete, data: { confirm: '¿Estás seguro?'} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to 'Nuevo', new_turn_path %>

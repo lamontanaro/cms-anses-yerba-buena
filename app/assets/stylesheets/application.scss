@@ -1,0 +1,54 @@
+@import "bootstrap";
+//Template
+@import "admin_template/pygments";
+@import "font-awesome";
+@import "admin_template/nanoscroller";
+@import "admin_template/codemirror";
+@import "admin_template/ambiance";
+@import "admin_template/jquery-jvectormap-1.2.2.css";
+@import "admin_template/style";
+@import "admin_template/style-green";
+@import "select2";
+
+.sidebar-logo {
+  height: 100px;
+}
+
+.logo-mini {
+  width: 50%;
+  padding-left: 10px;
+}
+
+.img-admin-show {
+  width: 50%;
+}
+
+@media (max-width: 575px) {
+  .logo-mini {
+    width: 23%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .logo-mini {
+    width: 50%;
+    padding-top: 20%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .logo-mini {
+    width: 15%;
+  }
+}
+
+.iniciado {
+  @extend .badge-info;
+}
+
+.aprobado {
+  @extend .badge-success;
+}
+
+.rechazado {
+  @extend .badge-danger;
+}

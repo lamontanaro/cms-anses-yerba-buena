@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  turn_date: MyString
+  turn_time: MyString
+  place: MyString
+  person: one
+
+two:
+  number: MyString
+  turn_date: MyString
+  turn_time: MyString
+  place: MyString
+  person: two
